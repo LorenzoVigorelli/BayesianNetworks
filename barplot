@@ -1,0 +1,5 @@
+vel_dag <- model2network("[X1][X2|X1][X3|X2]")
+bn.mle <- bn.fit(travel_dag , data = ruiz_example ,method = "bayes", iss = 10)
+dfddiscrete = data.frame(apply(ruiz_example, c(1,2), as.character), stringsAsFactors=TRUE)
+b_p = bn.fit(dag, data=dfddiscrete, method='bayes')
+bn.fit.barchart(b_p$X2, main="x2", xlab="p(x2|x1)", ylab="x1")
