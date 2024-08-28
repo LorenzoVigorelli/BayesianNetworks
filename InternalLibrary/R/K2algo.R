@@ -192,6 +192,9 @@ K2_pipeline <- function(data, max_parents, max_iter, mode="local", n_cores=-1, r
     colnames(data) <- paste0("X", 1:ncol(data))
   }
 
+  # Randomly shuffle data rows
+  data <- data[sample(nrow(data)), ]
+
   # Try different random orders of the columns
   if (mode == "local") {
     history <- array(data = NA, dim = c(max_iter))
